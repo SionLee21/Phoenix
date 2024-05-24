@@ -22,6 +22,7 @@
 		22C4C92B2C0107F600157FC1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */; };
 		22C4C92D2C0107FC00157FC1 /* repoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92C2C0107FC00157FC1 /* repoViewController.swift */; };
 		22C4C92F2C01080100157FC1 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92E2C01080000157FC1 /* uploadViewController.swift */; };
+		489B2D912C010A1500158D34 /* modalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B2D902C010A1500158D34 /* modalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		22C4C92C2C0107FC00157FC1 /* repoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = repoViewController.swift; sourceTree = "<group>"; };
 		22C4C92E2C01080000157FC1 /* uploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
+		489B2D902C010A1500158D34 /* modalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				22C4C9262C0107D400157FC1 /* APIService.swift */,
 				22C4C8EC2C00C76200157FC1 /* AppDelegate.swift */,
 				22C4C8EE2C00C76200157FC1 /* SceneDelegate.swift */,
+				489B2D902C010A1500158D34 /* modalViewController.swift */,
 				22C4C8F02C00C76200157FC1 /* ViewController.swift */,
 				22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */,
 				22C4C92C2C0107FC00157FC1 /* repoViewController.swift */,
@@ -278,6 +281,7 @@
 			files = (
 				22C4C92D2C0107FC00157FC1 /* repoViewController.swift in Sources */,
 				22C4C8F12C00C76200157FC1 /* ViewController.swift in Sources */,
+				489B2D912C010A1500158D34 /* modalViewController.swift in Sources */,
 				22C4C9272C0107D400157FC1 /* APIService.swift in Sources */,
 				22C4C8ED2C00C76200157FC1 /* AppDelegate.swift in Sources */,
 				22C4C8EF2C00C76200157FC1 /* SceneDelegate.swift in Sources */,

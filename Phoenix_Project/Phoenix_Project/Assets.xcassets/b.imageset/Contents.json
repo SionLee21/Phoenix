@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "iconoir_box.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 355.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
