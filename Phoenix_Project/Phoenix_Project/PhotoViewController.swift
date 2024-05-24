@@ -61,6 +61,7 @@ class PhotoViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
+        
     }
     
     // 업로드 버튼 탭 이벤트 처리
@@ -103,12 +104,16 @@ class PhotoViewController: UIViewController {
                 return
             }
             
-            guard let data = data, let responseString = String(data: data, encoding: .utf8) else {
-                print("서버 응답 데이터 처리에 실패했습니다.")
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("잘못된 서버 응답입니다.")
                 return
             }
             
-            print("이미지 업로드 성공: \(responseString)")
+            if httpResponse.statusCode == 200 {
+                print("이미지 업로드 성공")
+            } else {
+                print("이미지 업로드 실패: HTTP 상태 코드 \(httpResponse.statusCode)")
+            }
         }
         
         task.resume()
