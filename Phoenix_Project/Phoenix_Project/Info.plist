@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;앱에서 카메라를 사용하기 위하여 카메라에 접근권한을 요청합니다&quot;</string>
 </dict>
 </plist>
