@@ -114,8 +114,8 @@ class modalViewController : UIViewController {
     }()
     
 //    
-    let textView: LinedTextView = {
-            let tv = LinedTextView()
+    let textView: ModalLinedTextView = {
+            let tv = ModalLinedTextView()
             tv.font = UIFont.systemFont(ofSize: 16)
             tv.textAlignment = .left
             tv.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5) // 텍스트 뷰의 패딩 설정
@@ -181,7 +181,7 @@ class modalViewController : UIViewController {
     }
 }
 
-class LinedTextView: UITextView, UITextViewDelegate {
+class ModalLinedTextView: UITextView, UITextViewDelegate {
     let lineSpacing: CGFloat = 40 // 줄 간격을 적절하게 조정
     let maxNumberOfLines: Int = 4
     

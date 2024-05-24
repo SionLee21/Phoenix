@@ -44,8 +44,6 @@ class uploadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-<<<<<<< HEAD
-=======
         
         // 이미지 뷰 생성 및 설정
         imageView = UIImageView()
@@ -100,27 +98,8 @@ class uploadViewController: UIViewController {
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             titleLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
->>>>>>> 86bfca3 (240525 현중 : git branch master)
         
-        // 이미지 뷰 생성 및 설정
-        imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .white
-        imageView.isUserInteractionEnabled = true
-        imageView.layer.cornerRadius = 15
-        imageView.clipsToBounds = true
-        imageView.layer.borderColor = UIColor.black.cgColor // border color 설정
-        imageView.layer.borderWidth = 1 // border width 설정
         
-<<<<<<< HEAD
-        // 기본 이미지 뷰 레이블 생성 및 설정
-        let imageViewLabel = UILabel()
-        imageViewLabel.text = "청춘을 포스팅 하세요"
-        imageViewLabel.textAlignment = .center
-        imageViewLabel.textColor = .black
-        imageView.addSubview(imageViewLabel)
-        imageViewLabel.translatesAutoresizingMaskIntoConstraints = false
-=======
         // 날짜 선택 뷰 추가
         let dateStackView = UIStackView(arrangedSubviews: [datePickerView])
         dateStackView.axis = .horizontal
@@ -362,4 +341,3 @@ class LinedTextView: UITextView, UITextViewDelegate {
         }
     }
 }
->>>>>>> 86bfca3 (240525 현중 : git branch master)
