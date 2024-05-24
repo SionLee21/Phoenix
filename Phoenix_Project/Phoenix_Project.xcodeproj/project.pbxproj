@@ -16,7 +16,12 @@
 		22C4C9042C00C76900157FC1 /* Phoenix_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9032C00C76900157FC1 /* Phoenix_ProjectTests.swift */; };
 		22C4C90E2C00C76900157FC1 /* Phoenix_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C90D2C00C76900157FC1 /* Phoenix_ProjectUITests.swift */; };
 		22C4C9102C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C90F2C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift */; };
-        
+		22C4C9252C0107C000157FC1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9242C0107C000157FC1 /* HomeViewController.swift */; };
+		22C4C9272C0107D400157FC1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9262C0107D400157FC1 /* APIService.swift */; };
+		22C4C9292C0107E800157FC1 /* Pard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9282C0107E800157FC1 /* Pard.swift */; };
+		22C4C92B2C0107F600157FC1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */; };
+		22C4C92D2C0107FC00157FC1 /* repoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92C2C0107FC00157FC1 /* repoViewController.swift */; };
+		22C4C92F2C01080100157FC1 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C92E2C01080000157FC1 /* uploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +55,12 @@
 		22C4C9092C00C76900157FC1 /* Phoenix_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Phoenix_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C4C90D2C00C76900157FC1 /* Phoenix_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phoenix_ProjectUITests.swift; sourceTree = "<group>"; };
 		22C4C90F2C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phoenix_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
-        
+		22C4C9242C0107C000157FC1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		22C4C9262C0107D400157FC1 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		22C4C9282C0107E800157FC1 /* Pard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pard.swift; sourceTree = "<group>"; };
+		22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		22C4C92C2C0107FC00157FC1 /* repoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = repoViewController.swift; sourceTree = "<group>"; };
+		22C4C92E2C01080000157FC1 /* uploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,19 +111,19 @@
 		22C4C8EB2C00C76200157FC1 /* Phoenix_Project */ = {
 			isa = PBXGroup;
 			children = (
+				22C4C9242C0107C000157FC1 /* HomeViewController.swift */,
+				22C4C9282C0107E800157FC1 /* Pard.swift */,
+				22C4C9262C0107D400157FC1 /* APIService.swift */,
 				22C4C8EC2C00C76200157FC1 /* AppDelegate.swift */,
 				22C4C8EE2C00C76200157FC1 /* SceneDelegate.swift */,
-				489B2D8C2C00FAA500158D34 /* uploadViewController.swift */,
-				489B2D8A2C00FA9100158D34 /* repoViewController.swift */,
-				489B2D8E2C00FACC00158D34 /* HomeViewController.swift */,
 				22C4C8F02C00C76200157FC1 /* ViewController.swift */,
+				22C4C92A2C0107F600157FC1 /* PhotoViewController.swift */,
+				22C4C92C2C0107FC00157FC1 /* repoViewController.swift */,
+				22C4C92E2C01080000157FC1 /* uploadViewController.swift */,
 				22C4C8F22C00C76200157FC1 /* Main.storyboard */,
 				22C4C8F52C00C76800157FC1 /* Assets.xcassets */,
 				22C4C8F72C00C76800157FC1 /* LaunchScreen.storyboard */,
 				22C4C8FA2C00C76800157FC1 /* Info.plist */,
-				22C4C91E2C00F57100157FC1 /* APIService.swift */,
-				22C4C9202C00F59600157FC1 /* Pard.swift */,
-				22C4C9222C00F73E00157FC1 /* PhotoViewController.swift */,
 			);
 			path = Phoenix_Project;
 			sourceTree = "<group>";
@@ -266,12 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				489B2D8B2C00FA9100158D34 /* repoViewController.swift in Sources */,
+				22C4C92D2C0107FC00157FC1 /* repoViewController.swift in Sources */,
 				22C4C8F12C00C76200157FC1 /* ViewController.swift in Sources */,
-				489B2D8D2C00FAA500158D34 /* uploadViewController.swift in Sources */,
+				22C4C9272C0107D400157FC1 /* APIService.swift in Sources */,
 				22C4C8ED2C00C76200157FC1 /* AppDelegate.swift in Sources */,
-				22C4C91F2C00F57100157FC1 /* APIService.swift in Sources */,
 				22C4C8EF2C00C76200157FC1 /* SceneDelegate.swift in Sources */,
+				22C4C92B2C0107F600157FC1 /* PhotoViewController.swift in Sources */,
+				22C4C92F2C01080100157FC1 /* uploadViewController.swift in Sources */,
+				22C4C9292C0107E800157FC1 /* Pard.swift in Sources */,
+				22C4C9252C0107C000157FC1 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
