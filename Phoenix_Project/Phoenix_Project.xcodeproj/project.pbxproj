@@ -16,9 +16,15 @@
 		22C4C9042C00C76900157FC1 /* Phoenix_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9032C00C76900157FC1 /* Phoenix_ProjectTests.swift */; };
 		22C4C90E2C00C76900157FC1 /* Phoenix_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C90D2C00C76900157FC1 /* Phoenix_ProjectUITests.swift */; };
 		22C4C9102C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C90F2C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift */; };
+<<<<<<< HEAD
 		489B2D8B2C00FA9100158D34 /* repoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B2D8A2C00FA9100158D34 /* repoViewController.swift */; };
 		489B2D8D2C00FAA500158D34 /* uploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B2D8C2C00FAA500158D34 /* uploadViewController.swift */; };
 		489B2D8F2C00FACC00158D34 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489B2D8E2C00FACC00158D34 /* HomeViewController.swift */; };
+=======
+		22C4C91F2C00F57100157FC1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C91E2C00F57100157FC1 /* APIService.swift */; };
+		22C4C9212C00F59600157FC1 /* Pard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9202C00F59600157FC1 /* Pard.swift */; };
+		22C4C9232C00F73E00157FC1 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4C9222C00F73E00157FC1 /* PhotoViewController.swift */; };
+>>>>>>> 0a6ced9 (240525 : 카메라 기능 2차 구현)
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +58,15 @@
 		22C4C9092C00C76900157FC1 /* Phoenix_ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Phoenix_ProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C4C90D2C00C76900157FC1 /* Phoenix_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phoenix_ProjectUITests.swift; sourceTree = "<group>"; };
 		22C4C90F2C00C76900157FC1 /* Phoenix_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phoenix_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		489B2D8A2C00FA9100158D34 /* repoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = repoViewController.swift; sourceTree = "<group>"; };
 		489B2D8C2C00FAA500158D34 /* uploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadViewController.swift; sourceTree = "<group>"; };
 		489B2D8E2C00FACC00158D34 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+=======
+		22C4C91E2C00F57100157FC1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		22C4C9202C00F59600157FC1 /* Pard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pard.swift; sourceTree = "<group>"; };
+		22C4C9222C00F73E00157FC1 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+>>>>>>> 0a6ced9 (240525 : 카메라 기능 2차 구현)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +127,9 @@
 				22C4C8F52C00C76800157FC1 /* Assets.xcassets */,
 				22C4C8F72C00C76800157FC1 /* LaunchScreen.storyboard */,
 				22C4C8FA2C00C76800157FC1 /* Info.plist */,
+				22C4C91E2C00F57100157FC1 /* APIService.swift */,
+				22C4C9202C00F59600157FC1 /* Pard.swift */,
+				22C4C9222C00F73E00157FC1 /* PhotoViewController.swift */,
 			);
 			path = Phoenix_Project;
 			sourceTree = "<group>";
@@ -271,8 +286,14 @@
 				22C4C8F12C00C76200157FC1 /* ViewController.swift in Sources */,
 				489B2D8D2C00FAA500158D34 /* uploadViewController.swift in Sources */,
 				22C4C8ED2C00C76200157FC1 /* AppDelegate.swift in Sources */,
+				22C4C91F2C00F57100157FC1 /* APIService.swift in Sources */,
 				22C4C8EF2C00C76200157FC1 /* SceneDelegate.swift in Sources */,
+<<<<<<< HEAD
 				489B2D8F2C00FACC00158D34 /* HomeViewController.swift in Sources */,
+=======
+				22C4C9212C00F59600157FC1 /* Pard.swift in Sources */,
+				22C4C9232C00F73E00157FC1 /* PhotoViewController.swift in Sources */,
+>>>>>>> 0a6ced9 (240525 : 카메라 기능 2차 구현)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS3GLDCWXY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Phoenix_Project/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "청춘뽑기";
@@ -482,6 +504,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS3GLDCWXY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Phoenix_Project/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "청춘뽑기";
