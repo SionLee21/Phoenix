@@ -113,7 +113,6 @@ class modalViewController : UIViewController {
         return downloadButton
     }()
     
-//
     let textView: ModalLinedTextView = {
             let tv = ModalLinedTextView()
             tv.font = UIFont.systemFont(ofSize: 16)
