@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
     let boxView : UIView = {
@@ -93,9 +93,28 @@ class HomeViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.937312007, green: 0.937312007, blue: 0.937312007, alpha: 1)
         gachaButton.addTarget(self, action: #selector(gachaButtonTapped), for: .touchUpInside)
         setUI()
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(boxViewTapped))
+        boxView.addGestureRecognizer(tapGesture)
     }
-    
+
+    @objc func boxViewTapped() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) {
+            guard let userPickedImage = info[.originalImage] as? UIImage else {
+                fatalError("선택된 이미지를 불러오지 못했습니다: userPickedImage의 값이 nil입니다.")
+            }
+            
+            let uploadVC = uploadViewController()
+            uploadVC.imageView.image = userPickedImage
+            self.navigationController?.pushViewController(uploadVC, animated: true)
+        }
+    }
     
     
     @objc func gachaButtonTapped(){

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "40.png",
+      "filename" : "40 1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -319,6 +319,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "102.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -337,14 +338,6 @@
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
-    },
-    {
-      "filename" : "102.png",
-      "idiom" : "watch",
-      "role" : "appLauncher",
-      "scale" : "2x",
-      "size" : "45x45",
-      "subtype" : "41mm"
     }
   ],
   "info" : {

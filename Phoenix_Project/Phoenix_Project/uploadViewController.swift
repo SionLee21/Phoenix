@@ -3,7 +3,17 @@ import UIKit
 class uploadViewController: UIViewController {
     
     // 이미지 뷰 속성
-    var imageView: UIImageView!
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        imageView.isUserInteractionEnabled = true
+        imageView.layer.cornerRadius = 15
+        imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 1
+        return imageView
+    }()
     
     // 날짜 선택 뷰 속성
     let datePickerView: UIDatePicker = {
@@ -11,8 +21,23 @@ class uploadViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .compact
         datePicker.locale = Locale(identifier: "ko_KR")
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         return datePicker
     }()
+
+    // 날짜 선택 시 호출되는 메서드
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+        datePickerView.setValue(UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1), forKey: "textColor")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 이미지 뷰의 모든 서브뷰 숨기기
+        for subview in imageView.subviews {
+            subview.isHidden = true
+        }
+    }
     
     // 날씨 아이콘 뷰 속성
     let weatherIconViews: [UIImageView] = {
@@ -21,9 +46,29 @@ class uploadViewController: UIViewController {
             let imageView = UIImageView(image: icon)
             imageView.tintColor = .gray
             imageView.contentMode = .scaleAspectFit
+            imageView.isUserInteractionEnabled = true
             return imageView
         }
     }()
+
+    // 날씨 아이콘 탭 이벤트 처리
+    @objc func weatherIconTapped(_ sender: UITapGestureRecognizer) {
+        guard let selectedIcon = sender.view as? UIImageView else { return }
+        
+        for iconView in weatherIconViews {
+            if iconView == selectedIcon {
+                iconView.backgroundColor = UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1)
+                iconView.tintColor = .white
+                iconView.layer.cornerRadius = iconView.frame.width / 2
+                iconView.clipsToBounds = true
+            } else {
+                iconView.backgroundColor = .clear
+                iconView.tintColor = .gray
+                iconView.layer.cornerRadius = 0
+                iconView.clipsToBounds = false
+            }
+        }
+    }
     
     // 텍스트 필드 속성
     let textView: LinedTextView = {
@@ -44,9 +89,9 @@ class uploadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .clear
         
         // 이미지 뷰 생성 및 설정
-        imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .white
         imageView.isUserInteractionEnabled = true
@@ -68,6 +113,12 @@ class uploadViewController: UIViewController {
             imageViewLabel.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             imageViewLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
+        
+        // 날씨 아이콘 탭 제스처 설정
+        for iconView in weatherIconViews {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(weatherIconTapped(_:)))
+            iconView.addGestureRecognizer(tapGesture)
+        }
 
         // 가로줄 생성 및 설정
         let lineView = UIView()
@@ -120,13 +171,15 @@ class uploadViewController: UIViewController {
         iconStackView.backgroundColor = #colorLiteral(red: 0.9137254902, green: 0.9137254902, blue: 0.9137254902, alpha: 1)
         iconStackView.layer.cornerRadius = 5
         iconStackView.clipsToBounds = true
+        iconStackView.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        iconStackView.isLayoutMarginsRelativeArrangement = true
         view.addSubview(iconStackView)
         iconStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             iconStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             iconStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             iconStackView.heightAnchor.constraint(equalToConstant: 30),
-            iconStackView.widthAnchor.constraint(equalToConstant: 150)
+            iconStackView.widthAnchor.constraint(equalToConstant: 170)
         ])
         
         view.addSubview(textView)
@@ -216,58 +269,112 @@ class uploadViewController: UIViewController {
             print("업로드할 이미지가 없습니다.")
             return
         }
-        
-        uploadImageToServer(image: image)
+
+        let postContent = textView.text ?? ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        let postDate = formatter.string(from: datePickerView.date)
+        var feeling = 0
+
+        // 선택된 아이콘에 따라 feeling 값 설정
+        if weatherIconViews[0].backgroundColor == UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1) {
+            feeling = 0 // sun.max 선택
+        } else if weatherIconViews[1].backgroundColor == UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1) {
+            feeling = 1 // cloud.sun 선택
+        } else if weatherIconViews[2].backgroundColor == UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1) {
+            feeling = 2 // cloud 선택
+        } else if weatherIconViews[3].backgroundColor == UIColor(red: 0.1529, green: 0.5294, blue: 0.1921, alpha: 1) {
+            feeling = 3 // cloud.rain 선택
+        }
+
+        uploadImageToServer(image: image, postContent: postContent, postDate: postDate, feeling: feeling)
     }
+
     
-    // 이미지를 서버로 전송하는 메서드
-    func uploadImageToServer(image: UIImage) {
+
+    // 이미지와 데이터를 서버로 전송하는 메서드
+    func uploadImageToServer(image: UIImage, postContent: String, postDate: String, feeling: Int) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             print("이미지 데이터 변환에 실패했습니다.")
             return
         }
-        
-        let url = URL(string: "http://192.168.0.19:8080/api/images/upload")!
+
+        let url = URL(string: "http://192.168.0.19:8080/api/postings/create")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("image/jpeg", forHTTPHeaderField: "Content-Type")
-        
+
         let boundary = UUID().uuidString
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
+
         var body = Data()
+
+        // 이미지 데이터 추가
         body.append("--\(boundary)\r\n".data(using: .utf8)!)
         body.append("Content-Disposition: form-data; name=\"image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
         body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
         body.append(imageData)
+        body.append("\r\n".data(using: .utf8)!)
+
+        // postingDTO 데이터 추가
+        let postingDTO: [String: Any] = [
+            "postContent": postContent,
+            "postDate": postDate,
+            "feeling": feeling
+        ]
+
+        let postingDTOData = try? JSONSerialization.data(withJSONObject: postingDTO, options: [])
+
+        body.append("--\(boundary)\r\n".data(using: .utf8)!)
+        body.append("Content-Disposition: form-data; name=\"postingDTO\"\r\n".data(using: .utf8)!)
+        body.append("Content-Type: application/json\r\n\r\n".data(using: .utf8)!)
+        body.append(postingDTOData!)
         body.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
-        
+
         request.httpBody = body
-        
+
+
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("이미지 업로드 실패: \(error.localizedDescription)")
+                print("Error: \(error.localizedDescription)")
                 return
             }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("잘못된 서버 응답입니다.")
+
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                print("Server responded with an error")
                 return
             }
-            
-            if httpResponse.statusCode == 200 {
-                print("이미지 업로드 성공")
-            } else {
-                print("이미지 업로드 실패: HTTP 상태 코드 \(httpResponse.statusCode)")
+
+            guard let data = data else {
+                print("No data received from the server")
+                return
+            }
+
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    print("Server response: \(json)")
+                    // 서버 응답 JSON 데이터를 처리하는 로직을 추가하세요.
+                }
+            } catch {
+                print("Error decoding JSON: \(error.localizedDescription)")
             }
         }
-        
+
         task.resume()
     }
 }
 
 extension uploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+
+    func openCamera() {
+        imagePickerController.sourceType = .camera
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true)
+    }
+
     // 이미지 선택 완료 시 호출되는 델리게이트 메서드
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imagePickerController.dismiss(animated: true)
@@ -277,6 +384,11 @@ extension uploadViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         
         imageView.image = userPickedImage
+        
+        // 이미지 뷰의 모든 서브뷰 숨기기
+        for subview in imageView.subviews {
+            subview.isHidden = true
+        }
     }
 }
 
