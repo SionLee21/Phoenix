@@ -10,11 +10,20 @@
 ---
 
 
+## 청춘뽑기를 누르면 모달창을 띄우고 이미지와 메모를 불러오고 댓글을 추가할 수 있게 했습니다. (댓글 추가부분, 불러오기 부분 구현 X)
+
+
+
+
+## 청춘 저장소 탭을 누르면 저장소에 올린 이미지를 볼 수 있습니다.
+
 
 
 
 ## 청춘 기록 탭을 클릭하면 다음 화면을 보여줍니다 
 --- 
+
+
 <img src ="https://github.com/3rd-PARD-iOS-PART/Phoenix/assets/162880508/36196e1c-544e-43cb-9f16-eaa5695408ac" width =300 height =600>
 
 
@@ -31,6 +40,7 @@
 사진찍기를 누르면 이 화면을 출력하고 카메라 어플을 켭니다. 
 
 
+
 <img src ="https://github.com/3rd-PARD-iOS-PART/Phoenix/assets/162880508/eb935cf1-b396-49a8-89e8-048905492f45" width =300 height =600>
 
 
@@ -43,7 +53,11 @@
 
 
 
+
 textLabel로 메모를 작성할 수 있습니다. 
+
+
+
 <img src ="https://github.com/3rd-PARD-iOS-PART/Phoenix/assets/162880508/b125c90a-b0b6-48a9-92dc-3eadc05797f2" width =300 height =600>
 
 
