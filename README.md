@@ -2,7 +2,7 @@
 ---
 
 
-- 스플래쉬 화면 구현했습니다.
+- 스플래시 화면 구현했습니다.
 
 
 <img src ="https://github.com/3rd-PARD-iOS-PART/Phoenix/assets/162880508/a0b20750-60eb-4109-b38c-c88c0c5570cf" width =300 height =600>
